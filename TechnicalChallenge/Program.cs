@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using Divisor;
+using DivisorLibrary;
 
 namespace TechnicalChallenge
 {
@@ -8,8 +7,32 @@ namespace TechnicalChallenge
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Digite um Numero:");
-            int enterNumber = int.Parse(Console.ReadLine());
+            int enterNumber = 0;
+            string value = string.Empty;
+            bool invalid = true;
+            do
+            {
+                Console.Write("Número de Entrada: ");
+                value = Console.ReadLine();
+                invalid = !(int.TryParse(value, out enterNumber) && enterNumber > 1);
+            }
+            while (invalid);
+
+            var result = Divisor.NumberValidator(enterNumber);
+
+            Console.Write("Números divisores: ");
+            for (int i = 0; i < result.Divisors.Count; i++)
+            {
+                Console.Write(result.Divisors[i] + " ");
+            }
+
+            Console.WriteLine();
+
+            Console.Write("Divisores Primos: ");
+            for (int i = 0; i < result.Primes.Count; i++)
+            {
+                Console.Write(result.Primes[i] + " ");
+            }
         }
     }
 }
