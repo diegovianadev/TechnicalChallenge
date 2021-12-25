@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Divisor\Divisor.csproj" />
+    <ProjectReference Include="..\DivisorLibrary\DivisorLibrary.csproj" />
   </ItemGroup>
 
 </Project>
