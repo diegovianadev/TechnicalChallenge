@@ -18,7 +18,7 @@ namespace TechnicalChallenge.WebApi.Controllers
         [HttpGet]
         public DivisorParameter Get(int enterNumber)
         {
-            var result = Divisor.NumberValidator(enterNumber);
+            var result = Divisor.GetPrimesAndDivisorsNumbers(new DivisorParameter(enterNumber));
             return (result);
         }
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DivisorLibrary
 {
@@ -8,10 +9,19 @@ namespace DivisorLibrary
 
         public List<int> Primes { get; set; }
 
+        public int EnterNumber { get; set; }
+
         public DivisorParameter()
         {
-            this.Divisors = new List<int>();
-            this.Primes = new List<int>();
+            Divisors = new List<int>();
+            Primes = new List<int>();
+        }
+
+        public DivisorParameter(int enterNumber)
+        {
+            Divisors = new List<int>();
+            Primes = new List<int>();
+            EnterNumber = enterNumber;
         }
     }
 }

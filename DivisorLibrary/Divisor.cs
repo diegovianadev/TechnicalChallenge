@@ -3,23 +3,29 @@
     public class Divisor
     {
 
-        public static DivisorParameter NumberValidator(int enterNumber)
+        public static DivisorParameter GetPrimesAndDivisorsNumbers(DivisorParameter parameter)
         {
-            DivisorParameter parameter = new DivisorParameter();
+            DivisorParameter newParameter = new DivisorParameter();
 
-            parameter.Divisors.Add(enterNumber);
-            for (int i = (enterNumber / 2); i >= 1; i--)
+            newParameter.Divisors.Add(1);
+
+            for (int i = 2; i <= (parameter.EnterNumber/2); i++)
             {
-                if (enterNumber % i == 0)
+                if (parameter.EnterNumber % i == 0)
                 {
-                    var result = NumberValidator(i);
+                    var result = GetPrimesAndDivisorsNumbers(new DivisorParameter(i));
                     if (result.Divisors.Count == 2)
-                        parameter.Primes.Add(i);
+                        newParameter.Primes.Add(i);
 
-                    parameter.Divisors.Add(i);
+                    newParameter.Divisors.Add(i);
                 }
             }
-            return parameter;
+            newParameter.Divisors.Add(parameter.EnterNumber);
+
+            if (newParameter.Divisors.Count == 2)
+                newParameter.Primes.Add(parameter.EnterNumber);
+
+            return newParameter;
         }
     }
 }
