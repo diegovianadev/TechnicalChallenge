@@ -4,6 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace TechnicalChallenge.WebApi
 {
@@ -23,7 +26,20 @@ namespace TechnicalChallenge.WebApi
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TechnicalChallenge.WebApi", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "TechnicalChallenge.WebApi",
+                    Version = "v1",
+                    Description = "TechnicalChallenge Framework Digital",
+                    Contact = new OpenApiContact 
+                    {
+                        Name = "Diego Viana",
+                        Url = new Uri("https://github.com/diegovianadev")
+                    }
+                });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
         }
 

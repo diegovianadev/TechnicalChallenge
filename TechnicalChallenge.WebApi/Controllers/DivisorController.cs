@@ -15,12 +15,18 @@ namespace TechnicalChallenge.WebApi.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Technical Challenge
+        /// </summary>
+        /// <param name="enterNumber">Número que será encontrado seus divisores e quais são primos</param>
+        /// <returns>Lista de divisores e quais são primos</returns>
+        /// <response code="200">retorna lista de divisores e quais deles são primos.</response>
+        /// <response code="400">Parâmetro inválido</response>
         [HttpGet]
         public DivisorParameter Get(int enterNumber)
         {
             var result = Divisor.GetPrimesAndDivisorsNumbers(new DivisorParameter(enterNumber));
             return (result);
         }
-
     }
 }

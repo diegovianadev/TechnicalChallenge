@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TechnicalChallenge.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:TechnicalChallenge.WebApi.Controllers.DivisorController.Get(System.Int32)">
+            <summary>
+            Technical Challenge
+            </summary>
+            <param name="enterNumber">Número que será encontrado seus divisores e quais são primos</param>
+            <returns>Lista de divisores e quais são primos</returns>
+            <response code="200">retorna lista de divisores e quais deles são primos.</response>
+            <response code="400">Parâmetro inválido</response>
+        </member>
+    </members>
+</doc>
