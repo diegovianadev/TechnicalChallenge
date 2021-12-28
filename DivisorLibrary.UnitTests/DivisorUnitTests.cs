@@ -45,11 +45,11 @@ namespace DivisorLibrary.UnitTests
         public void GetPrimesAndDivisorsNumbers_EnterNumberIs45_DivisorsAndPrimesResultAreEqual()
         {
             var expectedParameter = new DivisorParameter
-            {
-                EnterNumber = 45,
-                Divisors = new List<int> { 1, 3, 5, 9, 15, 45 },
-                Primes = new List<int> { 3, 5 }
-            };
+            (
+                45,
+                new List<int> { 1, 3, 5, 9, 15, 45 },
+                new List<int> { 3, 5 }
+            );
             var expectedJson = JsonSerializer.Serialize(expectedParameter);
 
             var result = Divisor.GetPrimesAndDivisorsNumbers(new DivisorParameter { EnterNumber = 45 });

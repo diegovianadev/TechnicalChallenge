@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DivisorLibrary;
+using System.Threading.Tasks;
 
 namespace TechnicalChallenge.WebApi.Controllers
 {
@@ -22,11 +23,15 @@ namespace TechnicalChallenge.WebApi.Controllers
         /// <returns>Lista de divisores e quais são primos</returns>
         /// <response code="200">retorna lista de divisores e quais deles são primos.</response>
         /// <response code="400">Parâmetro inválido</response>
-        [HttpGet]
-        public DivisorParameter Get(int enterNumber)
+        [HttpPost]
+        public ActionResult<DivisorParameter> Post([FromBody]DivisorParameter parameter)
         {
-            var result = Divisor.GetPrimesAndDivisorsNumbers(new DivisorParameter(enterNumber));
-            return (result);
+            if (ModelState.IsValid)
+            { 
+            var result = Divisor.GetPrimesAndDivisorsNumbers(parameter);
+            return result;
+            }
+            return BadRequest(ModelState);
         }
     }
 }
