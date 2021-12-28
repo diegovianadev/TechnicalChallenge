@@ -4,7 +4,7 @@
         <name>TechnicalChallenge.WebApi</name>
     </assembly>
     <members>
-        <member name="M:TechnicalChallenge.WebApi.Controllers.DivisorController.Get(System.Int32)">
+        <member name="M:TechnicalChallenge.WebApi.Controllers.DivisorController.Post(DivisorLibrary.DivisorParameter)">
             <summary>
             Technical Challenge
             </summary>
