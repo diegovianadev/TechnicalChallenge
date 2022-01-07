@@ -12,7 +12,9 @@ namespace DivisorLibrary.UnitTests
         [TestMethod]
         public void GetPrimesAndDivisorsNumbers_EnterNumberIsPositiveAndGreaterThanOne_DivisorsAreGreaterThanZero()
         {
-            var result = Divisor.GetPrimesAndDivisorsNumbers(new DivisorParameter { EnterNumber = 2 });
+            var enterNumber = new DivisorParameter { EnterNumber = 2 };
+
+            var result = Divisor.GetPrimesAndDivisorsNumbers(enterNumber);
 
             Assert.IsTrue(result.Divisors.Count > 0);
         }
@@ -20,7 +22,9 @@ namespace DivisorLibrary.UnitTests
         [TestMethod]
         public void GetPrimesAndDivisorsNumbers_EnterNumberIsPositiveAndGreaterThanOne_PrimesAreGreaterThanZero()
         {
-            var result = Divisor.GetPrimesAndDivisorsNumbers(new DivisorParameter { EnterNumber = 2 });
+            var enterNumber = new DivisorParameter { EnterNumber = 2 };
+
+            var result = Divisor.GetPrimesAndDivisorsNumbers(enterNumber);
 
             Assert.IsTrue(result.Primes.Count > 0);
         }
@@ -28,7 +32,9 @@ namespace DivisorLibrary.UnitTests
         [TestMethod]
         public void GetPrimesAndDivisorsNumbers_EnterNumberIsNegative_DivisorIsEmpty()
         {
-            var result = Divisor.GetPrimesAndDivisorsNumbers(new DivisorParameter { EnterNumber = -1 });
+            var enterNumber = new DivisorParameter { EnterNumber = -1 };
+
+            var result = Divisor.GetPrimesAndDivisorsNumbers(enterNumber);
 
             Assert.AreEqual(0, result.Primes.Count);
         }
@@ -36,7 +42,9 @@ namespace DivisorLibrary.UnitTests
         [TestMethod]
         public void GetPrimesAndDivisorsNumbers_EnterNumberIsNegative_PrimeIsEmpty()
         {
-            var result = Divisor.GetPrimesAndDivisorsNumbers(new DivisorParameter { EnterNumber = -1 });
+            var enterNumber = new DivisorParameter { EnterNumber = -1 };
+
+            var result = Divisor.GetPrimesAndDivisorsNumbers(enterNumber);
 
             Assert.AreEqual(0, result.Divisors.Count);
         }
